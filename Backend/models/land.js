@@ -9,6 +9,7 @@ const landSchema = new Schema({
     image: [ {type: String, required: true }],
     size: { type: Number, required: true },
     whyInvest: { type: String, required: true },
+    isApproved: { type: Boolean, default: false }
    
 });
 

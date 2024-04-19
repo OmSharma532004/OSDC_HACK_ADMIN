@@ -30,5 +30,16 @@ module.exports.getLands = async (req, res) => {
     }
     };
 
+    module.exports.getLandbyid = async(req,resp)=>
+    {
+        try{
+            const land = await Land.findById(req.params.id);
+            resp.status(200).json(land);
+        }
+        catch(error){
+            resp.status(404).json({message:error.message});
+        }
+    }
+
 
 

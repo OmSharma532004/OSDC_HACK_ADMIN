@@ -10,4 +10,7 @@ router.route('/createLand')
 router.route('/getLands')
     .get(landSeller.getLands);
 
+    router.route('/getLandbyid/:id')
+    .get(landSeller.getLandbyid);
+
 module.exports = router;
