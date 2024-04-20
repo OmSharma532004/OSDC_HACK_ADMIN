@@ -1,6 +1,6 @@
 
 const Share = require("../models/shares");
-
+const Property = require("../models/property");
 
 module.exports.createShare = async (req, res) => {
     try {
@@ -26,8 +26,9 @@ module.exports.createSharesByTotalPrice=async(req,res)=>
         .findById(propertyId)
         .populate('landId');
         const totalPrice = property.price;
-        const percentage = (totalPrice/10)*100;
         const price=totalPrice/10;
+        const percentage = (price/totalPrice)*100;
+        
        //now making 10 shares of that property
          for(let i=0;i<10;i++)
             {
@@ -38,8 +39,16 @@ module.exports.createSharesByTotalPrice=async(req,res)=>
                     percentage
                 });
                 await share.save();
+                property.shares.push(share);
+                await property.save();
+
             }
-            res.status(201).json({message:"Shares created successfully"});
+            res.status(201).json({message:"Shares created successfully",
+        success:true,
+        property:property
+
+        }
+        );
 
 
 

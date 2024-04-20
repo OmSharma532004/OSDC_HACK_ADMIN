@@ -4,6 +4,8 @@ const cors = require('cors');
 require('dotenv').config(); 
 const propertyRoutes = require('./routes/propertyRoutes');
 const landRoutes = require('./routes/land');
+const sharesRoutes = require('./routes/shares');
+const shares = require('./models/shares');
 
 const app = express();
 app.use(cors()); 
@@ -17,8 +19,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use('/api/properties', propertyRoutes);
 app.use('/api/lands', landRoutes);
-
-
+app.use('/api/shares', sharesRoutes);
 
 const port = process.env.PORT || 4000; 
 app.listen(port, () => console.log(`Server listening on port ${port}`));

@@ -13,4 +13,7 @@ router.route('/getProperty')
 router.route('/createShare')
     .post(propertyShares.createShare);
 
+router.route('/getPropertyById/:id')
+    .get(propertyShares.getPropertybyid);
+
 module.exports = router;

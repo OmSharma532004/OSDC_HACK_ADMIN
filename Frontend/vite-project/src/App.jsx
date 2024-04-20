@@ -7,6 +7,8 @@ import LandListings from './pages/landPages/landsPage';
 import Navbar from './components/navbar';
 import LandDetails from './pages/landPages/landDetails';
 import FinancialCalculator from './pages/landPages/Calculator';
+import PropertiesPage from './pages/Property/propertyPage';
+import PropertyDetails from './pages/Property/propertDetails';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +23,10 @@ function App() {
     <Route path='/land' element={<LandListings />}/>
     <Route path="/land-details" element={<LandDetails />} />
     <Route path="/calculator" element={<FinancialCalculator />} />
+    <Route path="/property" element={<PropertiesPage />} />
+    <Route path="/property-details" element={<PropertyDetails />} />
+
+    
   </Routes>
 </div>
    

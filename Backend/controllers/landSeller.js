@@ -41,5 +41,15 @@ module.exports.getLands = async (req, res) => {
         }
     }
 
-
+module.exports.updateLandApproved = async (req, res) => {
+    try {
+        const land = await Land.findById(req.params.id);
+        land.isApproved = true;
+        await land.save();
+        res.status(200).json({ message: "Land approved successfully" });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+    }
+    
 

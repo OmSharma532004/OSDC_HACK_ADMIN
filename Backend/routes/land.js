@@ -13,4 +13,7 @@ router.route('/getLands')
     router.route('/getLandbyid/:id')
     .get(landSeller.getLandbyid);
 
+router.route('/updateLandApproved/:id')
+    .put(landSeller.updateLandApproved);
+
 module.exports = router;
